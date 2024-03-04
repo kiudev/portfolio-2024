@@ -7,8 +7,14 @@ import FooterSection from '@/containers/footer-section';
 
 const inter = Inter({ subsets: ['latin'] });
 
+type UserData = {
+   name: string;
+   bio: string;
+   html_url: string;
+};
+
 export default function Home() {
-   const [myData, setMyData] = useState([] as any[]);
+   const [myData, setMyData] = useState<UserData>([] as any);
 
    useEffect(() => {
       const getMyData = async () => {

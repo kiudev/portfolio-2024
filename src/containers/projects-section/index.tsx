@@ -1,10 +1,17 @@
 import { useEffect, useState } from 'react';
 import Image from 'next/image';
 
+type Project = {
+   name: string;
+   homepage: string;
+   description: string;
+   topics: string[];
+};
+
 type dataProject = {
-   project: string,
-   image: string,
-}
+   project: Project;
+   image: string;
+};
 
 const ProjectSection = ({ project, image }: dataProject) => (
    <a href={project.homepage} target="_blank">
@@ -75,8 +82,6 @@ export default function ProjectsSection() {
       };
       getProjects();
    }, []);
-
-   console.log(projects);
 
    const projectImages = [
       '/movie-tracker.png',
