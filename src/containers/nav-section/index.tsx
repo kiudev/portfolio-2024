@@ -1,7 +1,11 @@
 import Image from 'next/image';
 import { useState } from 'react';
 
-export default function NavSection({ html_url }) {
+type Nav = {
+   html_url: string
+}
+
+export default function NavSection({ html_url }: Nav) {
    const [hoverIcon, setHoverIcon] = useState('');
 
    return (

@@ -25,8 +25,6 @@ export default function Home() {
 
    const { name, bio, html_url } = myData;
 
-   console.log(myData);
-
    return (
       <main
          className={`bg-gradient-to-tr from-blue-800 to-blue-500 text-white-500 min-w-[100dvw] min-h-screen  bg-blue-700 items-center p-6 md:p-10 ${inter.className}`}
