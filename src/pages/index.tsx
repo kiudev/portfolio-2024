@@ -33,7 +33,7 @@ export default function Home() {
 
    return (
       <main
-         className={`bg-gradient-to-tr from-blue-800 to-blue-500 text-white-500 min-w-[100dvw] min-h-screen  bg-blue-700 items-center p-6 md:p-10 ${inter.className}`}
+         className={`bg-gradient-to-tr from-blue-800 to-blue-500 text-white-500 min-w-[100%] min-h-[100vh]  bg-blue-700 items-center p-6 md:p-10 ${inter.className}`}
       >
          <div className="block lg:flex lg:justify-center">
             <header className="mt-10 lg:fixed lg:-ml-[700px] lg:h-[90vh]">
