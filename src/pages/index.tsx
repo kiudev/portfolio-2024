@@ -29,23 +29,21 @@ export default function Home() {
       getMyData();
    }, []);
 
-   const { name, bio, html_url } = myData;
-
    return (
       <main
          className={`bg-gradient-to-tr from-blue-800 to-blue-500 text-white-500 min-w-[100%] min-h-[100vh]  bg-blue-700 items-center p-6 md:p-10 ${inter.className}`}
       >
          <div className="block lg:flex lg:justify-center">
-            <header className="mt-10 lg:fixed lg:-ml-[700px] lg:h-[90vh]">
+            <header className="mt-10 lg:fixed lg:-ml-[700px] lg:h-[80vh]">
                <h1 className="text-4xl md:text-5xl font-semibold tracking-tight opacity-90">
-                  {name}
+                  Daniel Saavedra
                </h1>
                <h3 className="text-lg mt-2 opacity-90 lg:font-medium">
                   Web Developer
                </h3>
-               <p className="text-blue-100 text-opacity-65 mt-2">{bio}</p>
+               <p className="text-blue-100 text-opacity-65 mt-2">Building and learning at the same time 👨🏻‍💻</p>
 
-               <NavSection html_url={html_url} />
+               <NavSection />
                <footer className="mt-10">
                   <FooterSection />
                </footer>
@@ -87,7 +85,10 @@ export default function Home() {
                      Projects
                   </h3>
 
-                  <ProjectsSection />
+                  <ProjectsSection name='Movie Tracker' image='/movie-tracker.png' homepage='https://mov-tracker.vercel.app' description='Displays popular, current, upcoming and top-rated movies from TMDB' />
+                  <ProjectsSection name='Button Customizer' image='/button-customizer.png' homepage='https://customize-button.vercel.app' description='iOS Calculator with HTML, CSS and JS'/>
+                  <ProjectsSection name='iOS Calculator' image='/ios-calculator.png' homepage='https://calculator-kiudev.vercel.app' description='Customize your own button'/>
+                  <ProjectsSection name='Weather App' image='/weather-app.png' homepage='https://any-clime.vercel.app' description='Weather App' />
                </section>
             </div>
          </div>

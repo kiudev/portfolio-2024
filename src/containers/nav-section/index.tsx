@@ -1,11 +1,7 @@
 import Image from 'next/image';
 import { useState } from 'react';
 
-type Nav = {
-   html_url: string
-}
-
-export default function NavSection({ html_url }: Nav) {
+export default function NavSection() {
    const [hoverIcon, setHoverIcon] = useState('');
 
    return (
@@ -22,7 +18,7 @@ export default function NavSection({ html_url }: Nav) {
             </div>
             <div className="flex items-center gap-5 lg:-ml-5 lg:mt-40 lg:absolute lg:bottom-0 lg:mb-10">
                <li className="w-5 h-10 mt-4">
-                  <a className="w-10" href={html_url} target="_blank">
+                  <a className="w-10" href="https://github.com/kiudev" target="_blank">
                      <svg
                         className="lg:hover:scale-125 lg:transition-all"
                         xmlnsXlink="http://www.w3.org/1999/xlink"

@@ -1,23 +1,28 @@
 import { useEffect, useState } from 'react';
 import Image from 'next/image';
 
-type Project = {
+type dataProjects = {
    name: string;
    homepage: string;
    description: string;
-   topics: string[];
-};
-
-type dataProject = {
-   project: Project;
    image: string;
 };
 
-const ProjectSection = ({ project, image }: dataProject) => (
-   <a href={project.homepage} target="_blank">
+
+export default function ProjectsSection({ image, name, homepage, description }: dataProjects) {
+
+   const projectImages = [
+      '/movie-tracker.png',
+      '/button-customizer.png',
+      '/ios-calculator.png',
+      '/weather-app.png',
+   ];
+
+   return (
+      <a href={homepage} target="_blank">
       <div className="lg:bg-white-800 lg:bg-opacity-5 lg:mt-10 lg:px-10 lg:py-1 lg:hover:bg-opacity-10 lg:transition-all lg:rounded-md lg:border-t lg:border-opacity-10 lg:border-white-500">
          <header className="flex flex-row items-center gap-2">
-            <p className="mt-5">{project.name}</p>
+            <p className="mt-5">{name}</p>
             <svg
                xmlnsXlink="http://www.w3.org/1999/xlink"
                xmlns="http://www.w3.org/2000/svg"
@@ -36,23 +41,10 @@ const ProjectSection = ({ project, image }: dataProject) => (
                ></path>
             </svg>
          </header>
-         <p className="text-blue-100 text-opacity-65 mt-3 text-sm">
-            {project.description}
-         </p>
 
-         <ul className="flex gap-5">
-            {project.topics.map(
-               topic =>
-                  topic.length <= 10 && (
-                     <li
-                        className="bg-teal-800 bg-opacity-70 px-3 py-1 font-medium text-center mt-2 text-teal-200 rounded-lg text-sm"
-                        key={topic}
-                     >
-                        {topic}
-                     </li>
-                  )
-            )}
-         </ul>
+         <p className="text-blue-100 text-opacity-65 mt-3 text-sm">
+            {description}
+         </p>
 
          <Image
             className="mt-5 mb-5 border border-white border-blue-100 rounded-md"
@@ -63,43 +55,5 @@ const ProjectSection = ({ project, image }: dataProject) => (
          />
       </div>
    </a>
-);
-
-export default function ProjectsSection() {
-   const [projects, setProjects] = useState([]);
-
-   useEffect(() => {
-      const getProjects = async () => {
-         try {
-            const response = await fetch(
-               'https://api.github.com/users/kiudev/repos'
-            );
-            const data = await response.json();
-            setProjects(data);
-         } catch (err) {
-            console.error(err);
-         }
-      };
-      getProjects();
-   }, []);
-
-   const projectImages = [
-      '/movie-tracker.png',
-      '/button-customizer.png',
-      '/ios-calculator.png',
-      '/weather-app.png',
-   ];
-
-   const projectSections = [6, 0, 4, 10].map(
-      (project, index) =>
-         projects.length > 0 && (
-            <ProjectSection
-               key={index}
-               project={projects[project]}
-               image={projectImages[index]}
-            />
-         )
    );
-
-   return <>{projectSections}</>;
 }
