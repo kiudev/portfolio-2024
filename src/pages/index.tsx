@@ -41,7 +41,9 @@ export default function Home() {
                <h3 className="text-lg mt-2 opacity-90 lg:font-medium">
                   Web Developer
                </h3>
-               <p className="text-blue-100 text-opacity-65 mt-2">Building and learning at the same time 👨🏻‍💻</p>
+               <p className="text-blue-100 text-opacity-65 mt-2">
+                  Building and learning at the same time 👨🏻‍💻
+               </p>
 
                <NavSection />
                <footer className="mt-10">
@@ -56,7 +58,10 @@ export default function Home() {
                      About
                   </h3>
 
-                  <article id="about" className="leading-7 mt-5 lg:mb-20">
+                  <article
+                     id="about"
+                     className="leading-7 mt-5 lg:mb-20 lg:scroll-mt-20"
+                  >
                      <p className="text-blue-100 text-opacity-65">
                         <span className="text-blue-100">
                            Second-year web development student
@@ -80,15 +85,35 @@ export default function Home() {
                </section>
 
                {/* Projects */}
-               <section id="projects">
+               <section id="projects" className="lg:scroll-mt-20">
                   <h3 className="text-sm uppercase font-semibold tracking-widest mt-20 lg:hidden">
                      Projects
                   </h3>
 
-                  <ProjectsSection name='Movie Tracker' image='/movie-tracker.png' homepage='https://mov-tracker.vercel.app' description='Displays popular, current, upcoming and top-rated movies from TMDB' />
-                  <ProjectsSection name='Button Customizer' image='/button-customizer.png' homepage='https://customize-button.vercel.app' description='iOS Calculator with HTML, CSS and JS'/>
-                  <ProjectsSection name='iOS Calculator' image='/ios-calculator.png' homepage='https://calculator-kiudev.vercel.app' description='Customize your own button'/>
-                  <ProjectsSection name='Weather App' image='/weather-app.png' homepage='https://any-clime.vercel.app' description='Weather App' />
+                  <ProjectsSection
+                     name="Movie Tracker"
+                     image="/movie-tracker.png"
+                     homepage="https://mov-tracker.vercel.app"
+                     description="Displays popular, current, upcoming and top-rated movies from TMDB"
+                  />
+                  <ProjectsSection
+                     name="Button Customizer"
+                     image="/button-customizer.png"
+                     homepage="https://customize-button.vercel.app"
+                     description="iOS Calculator with HTML, CSS and JS"
+                  />
+                  <ProjectsSection
+                     name="iOS Calculator"
+                     image="/ios-calculator.png"
+                     homepage="https://calculator-kiudev.vercel.app"
+                     description="Customize your own button"
+                  />
+                  <ProjectsSection
+                     name="Weather App"
+                     image="/weather-app.png"
+                     homepage="https://any-clime.vercel.app"
+                     description="Weather App"
+                  />
                </section>
             </div>
          </div>
