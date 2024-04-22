@@ -1,8 +1,9 @@
 import { Inter } from "next/font/google";
-import { useEffect, useState } from "react";
+import { useEffect, useState, MouseEvent } from "react";
 import NavSection from "@/containers/nav/NavSection";
 import ProjectsSection from "@/containers/projects/ProjectsSection";
 import FooterSection from "@/containers/footer/FooterSection";
+import Head from "next/head";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -47,32 +48,40 @@ export default function Home() {
          onMouseMove={e => handleMouseMove(e)}
          className={`bg-blue-800 text-white-500 min-w-[100%] min-h-[100vh] items-center p-6 md:p-10 lg:p-14 ${inter.className}`}
       >
+         <Head>
+            <title>Daniel Saavedra | Portfolio</title>
+         </Head>
+
          <div
             style={{
-               width: "800px",
-               height: "800px",
+               width: "600px",
+               height: "600px",
                background:
                   "radial-gradient(circle at center, #0E1730, #0A1124 40%, #070C18 70%)",
                position: "absolute",
-               left: mousePosition.left - 400 + "px",
-               top: mousePosition.top - 400 + "px",
+               left: mousePosition.left - 300 + "px",
+               top: mousePosition.top - 300 + "px",
                borderRadius: "50%",
             }}
             className="hidden lg:flex"
          />
+
          <div className="block lg:flex lg:justify-center">
             <header className="mt-10 lg:fixed lg:-ml-[700px] lg:h-[80vh]">
                <h1 className="text-4xl md:text-5xl font-semibold tracking-tight opacity-90">
                   Daniel Saavedra
                </h1>
+
                <h3 className="text-lg mt-2 opacity-90 lg:font-medium">
                   Web Developer
                </h3>
+
                <p className="text-blue-100 text-opacity-65 mt-2">
                   Building and learning at the same time 👨🏻‍💻
                </p>
 
                <NavSection />
+
                <footer className="mt-10">
                   <FooterSection />
                </footer>

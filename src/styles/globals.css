@@ -5,3 +5,18 @@
 html {
    @apply scroll-smooth;
 }
+
+body::-webkit-scrollbar {
+   width: 5px;
+   background-color: #010204;
+}
+
+body::-webkit-scrollbar-thumb {
+   width: 10px;
+   background-color: hsl(224, 56%, 83%, 65%);
+   border-radius: 10px;
+}
+
+body {
+   overflow-x: hidden;
+}
