@@ -1,11 +1,10 @@
-import Image from 'next/image';
-import { Inter } from 'next/font/google';
-import { useEffect, useState } from 'react';
-import NavSection from '@/containers/nav-section';
-import ProjectsSection from '@/containers/projects-section';
-import FooterSection from '@/containers/footer-section';
+import { Inter } from "next/font/google";
+import { useEffect, useState } from "react";
+import NavSection from "@/containers/nav/NavSection";
+import ProjectsSection from "@/containers/projects/ProjectsSection";
+import FooterSection from "@/containers/footer/FooterSection";
 
-const inter = Inter({ subsets: ['latin'] });
+const inter = Inter({ subsets: ["latin"] });
 
 type UserData = {
    name: string;
@@ -15,11 +14,25 @@ type UserData = {
 
 export default function Home() {
    const [myData, setMyData] = useState<UserData>([] as any);
+   const [mousePosition, setMousePosition] = useState({
+      left: 0,
+      top: 0,
+   });
+
+   const handleMouseMove = (e: MouseEvent) => {
+      setMousePosition({ left: e.pageX, top: e.pageY });
+   };
+
+   const calculateBackgroundColor = () => {
+      return `#fff`;
+   };
+
+   const backgroundColor = calculateBackgroundColor();
 
    useEffect(() => {
       const getMyData = async () => {
          try {
-            const response = await fetch('https://api.github.com/users/kiudev');
+            const response = await fetch("https://api.github.com/users/kiudev");
             const data = await response.json();
             setMyData(data);
          } catch (err) {
@@ -31,8 +44,22 @@ export default function Home() {
 
    return (
       <main
-         className={`bg-gradient-to-tr from-blue-800 to-blue-500 text-white-500 min-w-[100%] min-h-[100vh]  bg-blue-700 items-center p-6 md:p-10 ${inter.className}`}
+         onMouseMove={e => handleMouseMove(e)}
+         className={`bg-blue-800 text-white-500 min-w-[100%] min-h-[100vh] items-center p-6 md:p-10 lg:p-14 ${inter.className}`}
       >
+         <div
+            style={{
+               width: "800px",
+               height: "800px",
+               background:
+                  "radial-gradient(circle at center, #0E1730, #0A1124 40%, #070C18 70%)",
+               position: "absolute",
+               left: mousePosition.left - 400 + "px",
+               top: mousePosition.top - 400 + "px",
+               borderRadius: "50%",
+            }}
+            className="hidden lg:flex"
+         />
          <div className="block lg:flex lg:justify-center">
             <header className="mt-10 lg:fixed lg:-ml-[700px] lg:h-[80vh]">
                <h1 className="text-4xl md:text-5xl font-semibold tracking-tight opacity-90">
@@ -60,12 +87,12 @@ export default function Home() {
 
                   <article
                      id="about"
-                     className="leading-7 mt-5 lg:mb-20 lg:scroll-mt-20"
+                     className="leading-7 lg:mb-20 lg:scroll-mt-40"
                   >
                      <p className="text-blue-100 text-opacity-65">
                         <span className="text-blue-100">
                            Second-year web development student
-                        </span>{' '}
+                        </span>
                         with a lot of interest in learning and growing as a
                         front-end developer.
                      </p>
@@ -73,7 +100,7 @@ export default function Home() {
                      <p className="text-blue-100 text-opacity-65 mt-2">
                         I decided to study web development back in 2022 with
                         basic computing notions and I am quite happy about the
-                        progress since then.{' '}
+                        progress since then.
                      </p>
 
                      <p className="text-blue-100 text-opacity-65 mt-2">
@@ -85,7 +112,7 @@ export default function Home() {
                </section>
 
                {/* Projects */}
-               <section id="projects" className="lg:scroll-mt-20">
+               <section id="projects" className="lg:scroll-mt-24">
                   <h3 className="text-sm uppercase font-semibold tracking-widest mt-20 lg:hidden">
                      Projects
                   </h3>
