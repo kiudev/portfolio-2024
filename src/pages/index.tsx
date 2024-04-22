@@ -87,19 +87,20 @@ export default function Home() {
 
                   <article
                      id="about"
-                     className="leading-7 lg:mb-20 lg:scroll-mt-40"
+                     className="leading-7 mt-5 lg:mb-20 lg:scroll-mt-40"
                   >
                      <p className="text-blue-100 text-opacity-65">
                         <span className="text-blue-100">
                            Second-year web development student
                         </span>
+                        {" "}
                         with a lot of interest in learning and growing as a
                         front-end developer.
                      </p>
 
                      <p className="text-blue-100 text-opacity-65 mt-2">
                         I decided to study web development back in 2022 with
-                        basic computing notions and I am quite happy about the
+                        basic computing notions and I&apos;m quite happy about the
                         progress since then.
                      </p>
 
