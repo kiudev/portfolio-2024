@@ -11,7 +11,7 @@ type dataProjects = {
 export default function ProjectsSection({ image, name, homepage, description }: dataProjects) {
    return (
       <a href={homepage} target="_blank">
-      <div className="lg:bg-white-800 lg:bg-opacity-5 lg:mt-10 lg:px-10 lg:py-1 lg:hover:bg-opacity-10 lg:transition-all lg:rounded-md lg:border-t lg:border-opacity-10 lg:border-white-500">
+      <div className="lg:bg-white-800 lg:bg-opacity-5 lg:mt-10 lg:px-10 lg:py-1 lg:hover:bg-opacity-15 lg:transition-all lg:rounded-md lg:border-t lg:border-opacity-10 lg:border-white-500">
          <header className="flex flex-row items-center justify-between">
             <p className="mt-5">{name}</p>
             <svg
