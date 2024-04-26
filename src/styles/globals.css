@@ -16,7 +16,3 @@ body::-webkit-scrollbar-thumb {
    background-color: hsl(224, 56%, 83%, 65%);
    border-radius: 10px;
 }
-
-body {
-   overflow-x: hidden;
-}

@@ -13,13 +13,13 @@ export default function NavSection() {
                   href="#about"
                   className="flex flex-row items-center cursor-pointer group gap-5"
                >
-                  <span className="group-hover:w-20 w-10 h-0.5 bg-white-600 transition-all duration-300 rounded-full hidden xl:block"></span>
+                  <span className="group-hover:w-20 w-10 h-0.5 bg-white-600 transition-all duration-200 rounded-full hidden xl:block"></span>
                   <li className="hidden lg:block text-[12px] uppercase font-medium tracking-widest leading-3">
                      About
                   </li>
                </a>
                <a href="#projects" className="flex flex-row items-center cursor-pointer group gap-5">
-                  <span className="group-hover:w-20 w-10 h-0.5 bg-white-600 transition-all duration-300 rounded-full hidden xl:block"></span>
+                  <span className="group-hover:w-20 w-10 h-0.5 bg-white-600 transition-all duration-200 rounded-full hidden xl:block"></span>
                   <li className="hidden lg:block text-[12px] uppercase font-medium tracking-widest">
                      Projects
                   </li>

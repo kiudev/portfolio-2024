@@ -21,14 +21,18 @@ export default function Home() {
    });
 
    const handleMouseMove = (e: MouseEvent) => {
-      setMousePosition({ left: e.pageX, top: e.pageY });
-   };
+      const windowHeight = window.innerHeight;
+      const windowWidth = window.innerWidth;
 
-   const calculateBackgroundColor = () => {
-      return `#fff`;
-   };
+      const offsetX = e.pageX - windowWidth / 2;
+      const offsetY = e.pageY - window.scrollY - windowHeight / 2;
 
-   const backgroundColor = calculateBackgroundColor();
+      const mouseXpercentatge = (offsetX / windowWidth * 100);
+      const mouseYPercentatge = (offsetY / windowHeight * 100);
+      
+
+      setMousePosition({left: mouseXpercentatge, top: mouseYPercentatge});
+   };
 
    useEffect(() => {
       const getMyData = async () => {
@@ -46,34 +50,31 @@ export default function Home() {
    return (
       <main
          onMouseMove={e => handleMouseMove(e)}
-         className={`bg-blue-800 text-white-500 min-w-[100%] min-h-[100vh] items-center p-6 md:p-10 lg:p-14 ${inter.className}`}
+         className={`bg-blue-700 text-white-500 min-w-screen min-h-screen items-center ${inter.className}`}
       >
          <Head>
-            <title>Daniel Saavedra | Portfolio</title>
+            <title>Daniel Saavedra</title>
          </Head>
 
          <div
             style={{
-               width: "600px",
-               height: "600px",
-               background:
-                  "radial-gradient(circle at center, #0E1730, #0A1124 40%, #070C18 70%)",
-               position: "absolute",
-               left: mousePosition.left - 300 + "px",
-               top: mousePosition.top - 300 + "px",
-               borderRadius: "50%",
+               width: "100vw",
+               height: "100vh",
+               background: `radial-gradient(500px at ${50 + mousePosition.left}% ${
+                  50 + mousePosition.top
+               }%, #111D3B, #0E1730 40%, #0A1124 70%)`,
             }}
-            className="hidden lg:flex"
+            className="hidden lg:flex lg:fixed"
          />
 
-         <div className="block lg:flex lg:justify-center">
+         <div className="block lg:flex lg:justify-center p-6 md:p-10 lg:p-14">
             <header className="mt-10 lg:fixed lg:-ml-[700px] lg:h-[80vh]">
                <h1 className="text-4xl md:text-5xl font-semibold tracking-tight opacity-90">
                   Daniel Saavedra
                </h1>
 
                <h3 className="text-lg mt-2 opacity-90 lg:font-medium">
-                  Web Developer
+                  Front-End Developer
                </h3>
 
                <p className="text-blue-100 text-opacity-65 mt-2">
