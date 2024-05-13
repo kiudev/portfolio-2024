@@ -19,6 +19,7 @@ export default function Home() {
       left: 0,
       top: 0,
    });
+   const [version, setVersion] = useState<string>("v2");
 
    const handleMouseMove = (e: MouseEvent) => {
       const windowHeight = window.innerHeight;
@@ -27,11 +28,10 @@ export default function Home() {
       const offsetX = e.pageX - windowWidth / 2;
       const offsetY = e.pageY - window.scrollY - windowHeight / 2;
 
-      const mouseXpercentatge = (offsetX / windowWidth * 100);
-      const mouseYPercentatge = (offsetY / windowHeight * 100);
-      
+      const mouseXpercentatge = (offsetX / windowWidth) * 100;
+      const mouseYPercentatge = (offsetY / windowHeight) * 100;
 
-      setMousePosition({left: mouseXpercentatge, top: mouseYPercentatge});
+      setMousePosition({ left: mouseXpercentatge, top: mouseYPercentatge });
    };
 
    useEffect(() => {
@@ -60,7 +60,9 @@ export default function Home() {
             style={{
                width: "100vw",
                height: "100vh",
-               background: `radial-gradient(500px at ${50 + mousePosition.left}% ${
+               background: `radial-gradient(500px at ${
+                  50 + mousePosition.left
+               }% ${
                   50 + mousePosition.top
                }%, #111D3B, #0E1730 40%, #0A1124 70%)`,
             }}
@@ -102,16 +104,15 @@ export default function Home() {
                      <p className="text-blue-100 text-opacity-65">
                         <span className="text-blue-100">
                            Second-year web development student
-                        </span>
-                        {" "}
+                        </span>{" "}
                         with a lot of interest in learning and growing as a
                         front-end developer.
                      </p>
 
                      <p className="text-blue-100 text-opacity-65 mt-2">
                         I decided to study web development back in 2022 with
-                        basic computing notions and I&apos;m quite happy about the
-                        progress since then.
+                        basic computing notions and I&apos;m quite happy about
+                        the progress since then.
                      </p>
 
                      <p className="text-blue-100 text-opacity-65 mt-2">
@@ -128,12 +129,33 @@ export default function Home() {
                      Projects
                   </h3>
 
-                  <ProjectsSection
-                     name="Movie Tracker"
-                     image="/movie-tracker.png"
-                     homepage="https://mov-tracker.vercel.app"
-                     description="Displays popular, current, upcoming and top-rated movies from TMDB"
-                  />
+                  <select
+                     className="absolute top-86 right-28 lg:right-20 mt-6 bg-transparent"
+                     name="version"
+                     onChange={(event: any) => setVersion(event.target.value)}
+                  >
+                     <option className="bg-transparent text-blue-500" value="v1">v1</option>
+                     <option className="bg-transparent text-blue-500" value="v2" selected>
+                        v2
+                     </option>
+                  </select>
+
+                  {version === "v2" ? (
+                     <ProjectsSection
+                        name="Cinopolis 🚧"
+                        image="/cinopolis.png"
+                        homepage="https://cinopolis.vercel.app"
+                        description="A platform guide for those looking for a movie or tv show."
+                     />
+                  ) : (
+                     <ProjectsSection
+                        name="Movie Tracker"
+                        image="/movie-tracker.png"
+                        homepage="https://mov-tracker.vercel.app"
+                        description="Displays popular, current, upcoming and top-rated movies from TMDB"
+                     />
+                  )}
+
                   <ProjectsSection
                      name="Button Customizer"
                      image="/button-customizer.png"
