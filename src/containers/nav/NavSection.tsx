@@ -8,18 +8,18 @@ export default function NavSection() {
       <nav className="flex flex-row mt-5">
          <ul className="flex flex-row gap-2.5 items-center lg:flex-col">
             <div className="w-40 h-0.5 bg-white-600 -ml-6 lg:hidden md:-ml-10"></div>
-            <div className="flex flex-col gap-5 mt-10">
+            <div className="flex flex-col gap-2 mt-10">
                <a
                   href="#about"
-                  className="flex flex-row items-center cursor-pointer group gap-5"
+                  className="flex flex-row items-center cursor-pointer group gap-5 py-2"
                >
-                  <span className="group-hover:w-20 w-10 h-0.5 bg-white-600 transition-all duration-200 rounded-full hidden xl:block"></span>
+                  <span className="group-hover:w-24 w-10 h-0.5 bg-white-600 transition-all duration-200 rounded-full hidden xl:block"></span>
                   <li className="hidden lg:block text-[12px] uppercase font-medium tracking-widest leading-3">
                      About
                   </li>
                </a>
-               <a href="#projects" className="flex flex-row items-center cursor-pointer group gap-5">
-                  <span className="group-hover:w-20 w-10 h-0.5 bg-white-600 transition-all duration-200 rounded-full hidden xl:block"></span>
+               <a href="#projects" className="flex flex-row items-center cursor-pointer group gap-5 py-2">
+                  <span className="group-hover:w-24 w-10 h-0.5 bg-white-600 transition-all duration-200 rounded-full hidden xl:block"></span>
                   <li className="hidden lg:block text-[12px] uppercase font-medium tracking-widest">
                      Projects
                   </li>
