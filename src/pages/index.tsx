@@ -71,11 +71,11 @@ export default function Home() {
 
          <div className="block lg:flex lg:justify-center p-6 md:p-10 lg:p-14">
             <header className="mt-10 lg:fixed lg:-ml-[700px] lg:h-[80vh]">
-               <h1 className="text-4xl md:text-5xl font-semibold tracking-tight opacity-90">
+               <h1 className="text-4xl md:text-5xl font-bold tracking-tight opacity-90">
                   Daniel Saavedra
                </h1>
 
-               <h3 className="text-lg mt-2 opacity-90 lg:font-medium">
+               <h3 className="text-lg mt-2 opacity-90 font-semibold">
                   Front-End Developer
                </h3>
 
@@ -130,12 +130,12 @@ export default function Home() {
                   </h3>
 
                   <select
-                     className="absolute top-86 right-28 lg:right-20 mt-6 bg-transparent"
+                     className="absolute top-86 right-28 lg:right-20 mt-6 bg-blue-500 text-blue-100"
                      name="version"
                      onChange={(event: any) => setVersion(event.target.value)}
                   >
-                     <option className="bg-transparent text-blue-500" value="v1">v1</option>
-                     <option className="bg-transparent text-blue-500" value="v2" selected>
+                     <option className="bg-transparent text-blue-100" value="v1">v1</option>
+                     <option className="bg-transparent text-blue-100" value="v2" selected>
                         v2
                      </option>
                   </select>
@@ -160,14 +160,16 @@ export default function Home() {
                      name="Button Customizer"
                      image="/button-customizer.png"
                      homepage="https://customize-button.vercel.app"
-                     description="iOS Calculator with HTML, CSS and JS"
+                     description="Customize your own button"
                   />
+
                   <ProjectsSection
                      name="iOS Calculator"
                      image="/ios-calculator.png"
                      homepage="https://calculator-kiudev.vercel.app"
-                     description="Customize your own button"
+                     description="iOS Calculator with HTML, CSS and JS"
                   />
+
                   <ProjectsSection
                      name="Weather App"
                      image="/weather-app.png"
