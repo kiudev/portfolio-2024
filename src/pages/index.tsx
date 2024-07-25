@@ -49,7 +49,7 @@ export default function Home() {
 
    return (
       <main
-         onMouseMove={e => handleMouseMove(e)}
+         onMouseMove={(e) => handleMouseMove(e)}
          className={`bg-blue-700 text-white-500 min-w-screen min-h-screen items-center ${inter.className}`}
       >
          <Head>
@@ -134,8 +134,17 @@ export default function Home() {
                      name="version"
                      onChange={(event: any) => setVersion(event.target.value)}
                   >
-                     <option className="bg-transparent text-blue-100" value="v1">v1</option>
-                     <option className="bg-transparent text-blue-100" value="v2" selected>
+                     <option
+                        className="bg-transparent text-blue-100"
+                        value="v1"
+                     >
+                        v1
+                     </option>
+                     <option
+                        className="bg-transparent text-blue-100"
+                        value="v2"
+                        selected
+                     >
                         v2
                      </option>
                   </select>
@@ -145,7 +154,7 @@ export default function Home() {
                         name="Cinopolis 🚧"
                         image="/cinopolis.png"
                         homepage="https://cinopolis.vercel.app"
-                        description="A platform guide for those looking for a movie or tv show."
+                        description="A platform guide for those looking for a movie or tv show"
                      />
                   ) : (
                      <ProjectsSection
@@ -157,10 +166,10 @@ export default function Home() {
                   )}
 
                   <ProjectsSection
-                     name="Button Customizer"
-                     image="/button-customizer.png"
-                     homepage="https://customize-button.vercel.app"
-                     description="Customize your own button"
+                     name="EN-ES Translate"
+                     image="/en-es-translate.png"
+                     homepage="https://en-es-translate.vercel.app"
+                     description="Translate between these two languages"
                   />
 
                   <ProjectsSection
@@ -168,6 +177,13 @@ export default function Home() {
                      image="/ios-calculator.png"
                      homepage="https://calculator-kiudev.vercel.app"
                      description="iOS Calculator with HTML, CSS and JS"
+                  />
+
+                  <ProjectsSection
+                     name="Button Customizer"
+                     image="/button-customizer.png"
+                     homepage="https://customize-button.vercel.app"
+                     description="Customize your own button"
                   />
 
                   <ProjectsSection
