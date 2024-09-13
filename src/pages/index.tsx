@@ -1,200 +1,186 @@
 import { Inter } from "next/font/google";
-import { useEffect, useState, MouseEvent } from "react";
+import { useEffect, useState, MouseEvent, useRef } from "react";
 import NavSection from "@/containers/nav/NavSection";
 import ProjectsSection from "@/containers/projects/ProjectsSection";
 import FooterSection from "@/containers/footer/FooterSection";
 import Head from "next/head";
+import Timeline from "@/components/Timeline";
 
 const inter = Inter({ subsets: ["latin"] });
 
-type UserData = {
-   name: string;
-   bio: string;
-   html_url: string;
-};
-
 export default function Home() {
-   const [myData, setMyData] = useState<UserData>([] as any);
-   const [mousePosition, setMousePosition] = useState({
-      left: 0,
-      top: 0,
-   });
-   const [version, setVersion] = useState<string>("v2");
+  const [mousePosition, setMousePosition] = useState({
+    left: 0,
+    top: 0,
+  });
+  const [isHovered, setIsHovered] = useState<string | null>(null);
 
-   const handleMouseMove = (e: MouseEvent) => {
-      const windowHeight = window.innerHeight;
-      const windowWidth = window.innerWidth;
+  const handleMouseMove = (e: MouseEvent) => {
+    const windowHeight = window.innerHeight;
+    const windowWidth = window.innerWidth;
 
-      const offsetX = e.pageX - windowWidth / 2;
-      const offsetY = e.pageY - window.scrollY - windowHeight / 2;
+    const offsetX = e.pageX - windowWidth / 2;
+    const offsetY = e.pageY - window.scrollY - windowHeight / 2;
 
-      const mouseXpercentatge = (offsetX / windowWidth) * 100;
-      const mouseYPercentatge = (offsetY / windowHeight) * 100;
+    const mouseXpercentatge = (offsetX / windowWidth) * 100;
+    const mouseYPercentatge = (offsetY / windowHeight) * 100;
 
-      setMousePosition({ left: mouseXpercentatge, top: mouseYPercentatge });
-   };
+    setMousePosition({ left: mouseXpercentatge, top: mouseYPercentatge });
+  };
 
-   useEffect(() => {
-      const getMyData = async () => {
-         try {
-            const response = await fetch("https://api.github.com/users/kiudev");
-            const data = await response.json();
-            setMyData(data);
-         } catch (err) {
-            console.error(err);
-         }
-      };
-      getMyData();
-   }, []);
+  const timelineItems = [
+    {
+      date: "2024 - Present",
+      label: "Internship",
+      title: "Web Developer",
+      company: "StellaTech",
+      content:
+        "Design and optimisation of websites and implementation of SEO strategies to improve search engine visibility.",
+    },
+  ];
 
-   return (
-      <main
-         onMouseMove={(e) => handleMouseMove(e)}
-         className={`bg-blue-700 text-white-500 min-w-screen min-h-screen items-center ${inter.className}`}
-      >
-         <Head>
-            <title>Daniel Saavedra</title>
-         </Head>
+  return (
+    <main
+      onMouseMove={(e) => handleMouseMove(e)}
+      className={`bg-blue-700 text-white-500 min-w-screen min-h-screen items-center ${inter.className}`}
+    >
+      <Head>
+        <title>Daniel Saavedra</title>
+      </Head>
 
-         <div
-            style={{
-               width: "100vw",
-               height: "100vh",
-               background: `radial-gradient(500px at ${
-                  50 + mousePosition.left
-               }% ${
-                  50 + mousePosition.top
-               }%, #111D3B, #0E1730 40%, #0A1124 70%)`,
-            }}
-            className="hidden lg:flex lg:fixed"
-         />
+      <div
+        style={{
+          width: "100vw",
+          height: "100vh",
+          background: `radial-gradient(500px at ${50 + mousePosition.left}% ${
+            50 + mousePosition.top
+          }%, #111D3B, #0E1730 40%, #0A1124 70%)`,
+        }}
+        className="hidden lg:flex lg:fixed"
+      />
 
-         <div className="block lg:flex lg:justify-center p-6 md:p-10 lg:p-14">
-            <header className="mt-10 lg:fixed lg:-ml-[700px] lg:h-[80vh]">
-               <h1 className="text-4xl md:text-5xl font-bold tracking-tight opacity-90">
-                  Daniel Saavedra
-               </h1>
+      <div className="min-h-screen flex lg:justify-center lg:items-center px-6 lg:px-20">
+        <div className="lg:flex lg:justify-between lg:gap-4">
+          <header className="lg:sticky lg:top-0 lg:flex lg:max-h-screen lg:w-1/2 lg:flex-col py-16 md:py-20 lg:py-24">
+            <h1 className="text-4xl md:text-5xl font-bold tracking-tight opacity-90">
+              Daniel Saavedra
+            </h1>
 
-               <h3 className="text-lg mt-2 opacity-90 font-semibold">
-                  Front-End Developer
-               </h3>
+            <h3 className="text-lg mt-2 opacity-90 font-semibold">
+              Frontend Developer
+            </h3>
 
-               <p className="text-blue-100 text-opacity-65 mt-2">
-                  Building and learning at the same time 👨🏻‍💻
-               </p>
+            <p className="text-blue-100 text-opacity-65 mt-2">
+              Building and learning at the same time 👨🏻‍💻
+            </p>
 
-               <NavSection />
+            <NavSection />
+          </header>
 
-               <footer className="mt-10">
-                  <FooterSection />
-               </footer>
-            </header>
+          {/* About me */}
+          <div className="lg:relative lg:w-[680px] lg:py-24">
+            <section>
+              <h3 className="text-sm uppercase font-bold tracking-widest lg:hidden">
+                About
+              </h3>
 
-            {/* About me */}
-            <div className="lg:-mt-10 lg:relative lg:w-[500px] lg:ml-[500px]">
-               <section className="mt-20">
-                  <h3 className="text-sm uppercase font-bold tracking-widest lg:hidden">
-                     About
-                  </h3>
+              <article
+                id="about"
+                className="leading-7 lg:mb-20 lg:scroll-mt-24 lg:pl-6 mt-5 lg:mt-0"
+              >
+                <p className="text-blue-100 text-opacity-65">
+                  <span className="text-blue-100">
+                    I&apos;m a trainee web developer
+                  </span>
+                  , nearing the end of my internship specialise in frontend
+                  development and my passion is creating attractive user
+                  interfaces
+                </p>
 
-                  <article
-                     id="about"
-                     className="leading-7 mt-5 lg:mb-20 lg:scroll-mt-40"
-                  >
-                     <p className="text-blue-100 text-opacity-65">
-                        <span className="text-blue-100">
-                           Second-year web development student
-                        </span>{" "}
-                        with a lot of interest in learning and growing as a
-                        front-end developer.
-                     </p>
+                <p className="text-blue-100 text-opacity-65 mt-2">
+                  I decided to study web development back in 2022 with basic
+                  computing notions and I&apos;m quite happy about the progress
+                  since then.
+                </p>
 
-                     <p className="text-blue-100 text-opacity-65 mt-2">
-                        I decided to study web development back in 2022 with
-                        basic computing notions and I&apos;m quite happy about
-                        the progress since then.
-                     </p>
+                <p className="text-blue-100 text-opacity-65 mt-2">
+                  I&apos;m looking forward to keep working and developing my
+                  skills and exploring opportunities that will make me grow
+                  professionally.
+                </p>
+              </article>
+            </section>
 
-                     <p className="text-blue-100 text-opacity-65 mt-2">
-                        I&apos;m looking forward to keep working and developing
-                        my skills and exploring opportunities that will make me
-                        grow professionally.
-                     </p>
-                  </article>
-               </section>
+            {/* Experience */}
+            <section id="experience" className="lg:scroll-mt-28">
+              <h3 className="text-sm uppercase font-bold tracking-widest lg:hidden">
+                Experience
+              </h3>
 
-               {/* Projects */}
-               <section id="projects" className="lg:scroll-mt-24">
-                  <h3 className="text-sm uppercase font-semibold tracking-widest mt-20 lg:hidden">
-                     Projects
-                  </h3>
+              <article className="leading-7 lg:mb-20 mt-5 lg:mt-0">
+                <Timeline items={[...timelineItems]} />
+              </article>
+            </section>
 
-                  <select
-                     className="absolute top-86 right-28 lg:right-20 mt-6 bg-blue-500 text-blue-100"
-                     name="version"
-                     onChange={(event: any) => setVersion(event.target.value)}
-                  >
-                     <option
-                        className="bg-transparent text-blue-100"
-                        value="v1"
-                     >
-                        v1
-                     </option>
-                     <option
-                        className="bg-transparent text-blue-100"
-                        value="v2"
-                        selected
-                     >
-                        v2
-                     </option>
-                  </select>
+            {/* Projects */}
+            <section id="projects" className="lg:scroll-mt-20">
+              <h3 className="text-sm uppercase font-semibold tracking-widest mt-20 lg:hidden">
+                Projects
+              </h3>
 
-                  {version === "v2" ? (
-                     <ProjectsSection
-                        name="Cinopolis 🚧"
-                        image="/cinopolis.png"
-                        homepage="https://cinopolis.vercel.app"
-                        description="A platform guide for those looking for a movie or tv show"
-                     />
-                  ) : (
-                     <ProjectsSection
-                        name="Movie Tracker"
-                        image="/movie-tracker.png"
-                        homepage="https://mov-tracker.vercel.app"
-                        description="Displays popular, current, upcoming and top-rated movies from TMDB"
-                     />
-                  )}
+              <ProjectsSection
+                name="Cinopolis"
+                image="/cinopolis.png"
+                homepage="https://cinopolis.vercel.app"
+                description="A platform guide for those looking for a movie or tv show"
+                isHovered={isHovered}
+                onEnter={(name) => setIsHovered(name)}
+                onLeave={() => setIsHovered(null)}
+              />
 
-                  <ProjectsSection
-                     name="EN-ES Translate"
-                     image="/en-es-translate.png"
-                     homepage="https://en-es-translate.vercel.app"
-                     description="Translate between these two languages"
-                  />
+              <ProjectsSection
+                name="EN-ES Translate"
+                image="/en-es-translate.png"
+                homepage="https://en-es-translate.vercel.app"
+                description="Translate between these two languages"
+                isHovered={isHovered}
+                onEnter={(name) => setIsHovered(name)}
+                onLeave={() => setIsHovered(null)}
+              />
 
-                  <ProjectsSection
-                     name="iOS Calculator"
-                     image="/ios-calculator.png"
-                     homepage="https://calculator-kiudev.vercel.app"
-                     description="iOS Calculator with HTML, CSS and JS"
-                  />
+              <ProjectsSection
+                name="iOS Calculator"
+                image="/ios-calculator.png"
+                homepage="https://calculator-kiudev.vercel.app"
+                description="iOS Calculator with HTML, CSS and JS"
+                isHovered={isHovered}
+                onEnter={(name) => setIsHovered(name)}
+                onLeave={() => setIsHovered(null)}
+              />
 
-                  <ProjectsSection
-                     name="Button Customizer"
-                     image="/button-customizer.png"
-                     homepage="https://customize-button.vercel.app"
-                     description="Customize your own button"
-                  />
+              <ProjectsSection
+                name="Button Customizer"
+                image="/button-customizer.png"
+                homepage="https://customize-button.vercel.app"
+                description="Customize your own button"
+                isHovered={isHovered}
+                onEnter={(name) => setIsHovered(name)}
+                onLeave={() => setIsHovered(null)}
+              />
 
-                  <ProjectsSection
-                     name="Weather App"
-                     image="/weather-app.png"
-                     homepage="https://any-clime.vercel.app"
-                     description="Weather App"
-                  />
-               </section>
-            </div>
-         </div>
-      </main>
-   );
+              <ProjectsSection
+                name="Weather App"
+                image="/weather-app.png"
+                homepage="https://any-clime.vercel.app"
+                description="Weather App"
+                isHovered={isHovered}
+                onEnter={(name) => setIsHovered(name)}
+                onLeave={() => setIsHovered(null)}
+              />
+            </section>
+          </div>
+        </div>
+      </div>
+    </main>
+  );
 }
