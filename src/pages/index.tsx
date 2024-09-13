@@ -36,6 +36,7 @@ export default function Home() {
       company: "StellaTech",
       content:
         "Design and optimisation of websites and implementation of SEO strategies to improve search engine visibility.",
+      website: "https://growthweb.es"
     },
   ];
 
