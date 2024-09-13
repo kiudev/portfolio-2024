@@ -4,7 +4,7 @@ interface TimelineItemProps {
   title: string;
   company: string;
   content: string;
-  homepage: string;
+  website: string;
 }
 
 export default function Timeline({ items }: { items: TimelineItemProps[] }) {
@@ -12,7 +12,7 @@ export default function Timeline({ items }: { items: TimelineItemProps[] }) {
     <div className={` -my-6`}>
       {items.map((item, index) => (
         <div key={index}>
-          <a href={item.homepage} target="_blank">
+          <a href={item.website} target="_blank">
             <div className="relative px-6 sm:pl-32 py-4 group hover:bg-blue-100 hover:bg-opacity-10 transition-all rounded-xl">
               {/* Purple label */}
 
