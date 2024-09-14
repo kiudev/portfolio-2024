@@ -1,10 +1,11 @@
 import { Inter } from "next/font/google";
-import { useEffect, useState, MouseEvent, useRef } from "react";
+import { useState, MouseEvent } from "react";
 import NavSection from "@/containers/nav/NavSection";
-import ProjectsSection from "@/containers/projects/ProjectsSection";
-import FooterSection from "@/containers/footer/FooterSection";
+import { projectsItems } from "@/data/projectsItems";
+import { experienceItems } from "@/data/experienceItems";
 import Head from "next/head";
 import Timeline from "@/components/Timeline";
+import Projects from "@/components/Projects";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -28,17 +29,13 @@ export default function Home() {
     setMousePosition({ left: mouseXpercentatge, top: mouseYPercentatge });
   };
 
-  const timelineItems = [
-    {
-      date: "2024 - Present",
-      label: "Internship",
-      title: "Web Developer",
-      company: "StellaTech",
-      content:
-        "Design and optimisation of websites and implementation of SEO strategies to improve search engine visibility.",
-      website: "https://growthweb.es"
-    },
-  ];
+  const projectsWithHoverLogic = projectsItems.map(project => ({
+    ...project,
+    isHovered: isHovered === project.name,
+    isAnyHovered: isHovered !== null,
+    onEnter: () => setIsHovered(project.name),
+    onLeave: () => setIsHovered(null),
+  }));
 
   return (
     <main
@@ -119,7 +116,7 @@ export default function Home() {
               </h3>
 
               <article className="leading-7 lg:mb-20 mt-9 lg:mt-0">
-                <Timeline items={[...timelineItems]} />
+                <Timeline items={[...experienceItems]} />
               </article>
             </section>
 
@@ -129,55 +126,7 @@ export default function Home() {
                 Projects
               </h3>
 
-              <ProjectsSection
-                name="Cinopolis"
-                image="/cinopolis.png"
-                homepage="https://cinopolis.vercel.app"
-                description="A platform guide for those looking for a movie or tv show"
-                isHovered={isHovered}
-                onEnter={(name) => setIsHovered(name)}
-                onLeave={() => setIsHovered(null)}
-              />
-
-              <ProjectsSection
-                name="EN-ES Translate"
-                image="/en-es-translate.png"
-                homepage="https://en-es-translate.vercel.app"
-                description="Translate between these two languages"
-                isHovered={isHovered}
-                onEnter={(name) => setIsHovered(name)}
-                onLeave={() => setIsHovered(null)}
-              />
-
-              <ProjectsSection
-                name="iOS Calculator"
-                image="/ios-calculator.png"
-                homepage="https://calculator-kiudev.vercel.app"
-                description="iOS Calculator with HTML, CSS and JS"
-                isHovered={isHovered}
-                onEnter={(name) => setIsHovered(name)}
-                onLeave={() => setIsHovered(null)}
-              />
-
-              <ProjectsSection
-                name="Button Customizer"
-                image="/button-customizer.png"
-                homepage="https://customize-button.vercel.app"
-                description="Customize your own button"
-                isHovered={isHovered}
-                onEnter={(name) => setIsHovered(name)}
-                onLeave={() => setIsHovered(null)}
-              />
-
-              <ProjectsSection
-                name="Weather App"
-                image="/weather-app.png"
-                homepage="https://any-clime.vercel.app"
-                description="Weather App"
-                isHovered={isHovered}
-                onEnter={(name) => setIsHovered(name)}
-                onLeave={() => setIsHovered(null)}
-              />
+              <Projects items={[...projectsWithHoverLogic]} />
             </section>
           </div>
         </div>
