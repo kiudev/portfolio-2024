@@ -61,7 +61,7 @@ export default function Home() {
       />
 
       <div className="min-h-screen flex lg:justify-center lg:items-center px-6 lg:px-20">
-        <div className="lg:flex lg:justify-between lg:gap-4">
+        <div className="lg:flex lg:justify-between lg:gap-10">
           <header className="lg:sticky lg:top-0 lg:flex lg:max-h-screen lg:w-1/2 lg:flex-col py-16 md:py-20 lg:py-24">
             <h1 className="text-4xl md:text-5xl font-bold tracking-tight opacity-90">
               Daniel Saavedra
@@ -79,7 +79,7 @@ export default function Home() {
           </header>
 
           {/* About me */}
-          <div className="lg:relative lg:w-[680px] lg:py-24">
+          <div className="lg:relative lg:w-[680px] lg:py-24 -mt-10 lg:mt-0">
             <section>
               <h3 className="text-sm uppercase font-bold tracking-widest lg:hidden">
                 About
@@ -113,18 +113,18 @@ export default function Home() {
             </section>
 
             {/* Experience */}
-            <section id="experience" className="lg:scroll-mt-28">
+            <section id="experience" className="lg:scroll-mt-28 mt-20 lg:mt-0">
               <h3 className="text-sm uppercase font-bold tracking-widest lg:hidden">
                 Experience
               </h3>
 
-              <article className="leading-7 lg:mb-20 mt-5 lg:mt-0">
+              <article className="leading-7 lg:mb-20 mt-9 lg:mt-0">
                 <Timeline items={[...timelineItems]} />
               </article>
             </section>
 
             {/* Projects */}
-            <section id="projects" className="lg:scroll-mt-20">
+            <section id="projects" className="lg:scroll-mt-20 mb-10 lg:mb-0">
               <h3 className="text-sm uppercase font-semibold tracking-widest mt-20 lg:hidden">
                 Projects
               </h3>
