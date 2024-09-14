@@ -9,7 +9,7 @@ interface TimelineItemProps {
 
 export default function Timeline({ items }: { items: TimelineItemProps[] }) {
   return (
-    <div className={` -my-6`}>
+    <div className={` -my-6 w-full`}>
       {items.map((item, index) => (
         <div key={index}>
           <a href={item.website} target="_blank">
@@ -17,11 +17,11 @@ export default function Timeline({ items }: { items: TimelineItemProps[] }) {
               {/* Purple label */}
 
               {/* Time + Title */}
-              <div className="flex flex-col sm:flex-row items-start mb-1 group-last:before:hidden before:absolute before:left-2 sm:before:left-0 before:h-full before:px-px before:bg-blue-500 sm:before:ml-[10.4rem] before:self-start before:-translate-x-1/2 before:translate-y-3 after:absolute after:left-2 sm:after:left-0 after:w-2 after:h-2 after:bg-blue-500 after:border-4 after:box-content after:border-blue-100 after:rounded-full sm:after:ml-[10.4rem] after:-translate-x-1/2 after:translate-y-1.5">
+              <div className="flex flex-col sm:flex-row items-start mb-1 group-last:before:hidden before:absolute before:left-2 sm:before:left-0 before:h-full before:px-px before:bg-blue-500 lg:before:ml-[10.4rem] min-[640px]:before:ml-[9rem] before:self-start before:-translate-x-1/2 before:translate-y-3 after:absolute after:left-2 sm:after:left-0 after:w-2 after:h-2 after:bg-blue-500 after:border-4 after:box-content after:border-blue-100 after:rounded-full min-[640px]:after:ml-1 lg:after:ml-[10.4rem] after:-translate-x-1/2 after:translate-y-1.5">
                 <time className="sm:absolute left-5 translate-y-0.5 inline-flex items-center justify-center text-[11px] font-semibold uppercase w-32 h-6 mb-3 sm:mb-0 text-blue-100 bg-blue-400 rounded-full">
                   {item.date}
                 </time>
-                <div className="text-xl font-bold text-blue-100 ml-14">
+                <div className="text-xl font-bold text-blue-100 -ml-6 min-[640px]:mt-9 min-[640px]:-ml-[130px] lg:mt-0 lg:ml-14">
                   {item.title}
                 </div>
                 <svg
@@ -32,7 +32,7 @@ export default function Timeline({ items }: { items: TimelineItemProps[] }) {
                   aria-hidden="true"
                   width="20"
                   height="20"
-                  className="absolute right-6"
+                  className="absolute right-0 lg:right-6"
                 >
                   <path
                     fillRule="evenodd"
@@ -43,9 +43,9 @@ export default function Timeline({ items }: { items: TimelineItemProps[] }) {
                 </svg>
               </div>
               {/* Company */}
-              <div className="text-blue-100 text-sm ml-14">{item.company}</div>
+              <div className="text-blue-100 text-sm -ml-6 lg:ml-14 min-[640px]:-ml-[130px]">{item.company}</div>
               {/* Description */}
-              <div className="text-blue-100 text-opacity-65 text-sm ml-14 mt-2">
+              <div className="text-blue-100 text-opacity-65 text-sm -ml-6 lg:ml-14 mt-2 min-[640px]:-ml-[130px]">
                 {item.content}
               </div>
             </div>
