@@ -40,9 +40,7 @@ export default function Projects({ items }: { items: ProjectsItemProps[] }) {
                 />
                 <div className="flex flex-col gap-2 w-full ml-8">
                   <div className="flex flex-row justify-between items-center">
-                    <p className="text-blue-100 text-md font-bold">
-                      {item.name}
-                    </p>
+                    <p className="text-md font-bold">{item.name}</p>
                     <svg
                       xmlnsXlink="http://www.w3.org/1999/xlink"
                       xmlns="http://www.w3.org/2000/svg"

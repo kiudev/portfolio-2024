@@ -4,8 +4,13 @@ export const experienceItems = [
     label: "Internship",
     title: "Web Developer",
     company: "StellaTech",
-    content:
-      "Design and optimisation of websites and implementation of SEO strategies to improve search engine visibility.",
-    website: "https://growthweb.es",
+    content: [
+      "Website design and optimization with Wordpress and Elementor",
+      "Implementation of SEO strategies to boost visibility in search engines",
+      "Keyword tracking and ranking results analysis with SE Ranking",
+      "Identify areas of improvement to adjust and improve the appearance and performance of the website",
+    ].map(item => (
+      <p className="mt-5 list-decimal" key={item}>{`- ${item}`}</p>
+    )),
   },
-];
+].reverse();

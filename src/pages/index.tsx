@@ -1,5 +1,5 @@
 import { Inter } from "next/font/google";
-import { useState, MouseEvent } from "react";
+import { useState, MouseEvent, useEffect } from "react";
 import NavSection from "@/containers/nav/NavSection";
 import { projectsItems } from "@/data/projectsItems";
 import { experienceItems } from "@/data/experienceItems";
@@ -69,7 +69,7 @@ export default function Home() {
             </h3>
 
             <p className="text-blue-100 text-opacity-65 mt-2">
-              Building and learning at the same time 👨🏻‍💻
+            I specialise in designing and optimising interfaces that combine<br></br> appearance with functionality and performance. 👨🏻‍💻
             </p>
 
             <NavSection />
@@ -87,8 +87,8 @@ export default function Home() {
                 className="leading-7 lg:mb-20 lg:scroll-mt-24 lg:pl-6 mt-5 lg:mt-0"
               >
                 <p className="text-blue-100 text-opacity-65">
-                  <span className="text-blue-100">
-                    I&apos;m a trainee web developer
+                  <span className="text-white-500">
+                    I&apos;m a frontend developer
                   </span>
                   , nearing the end of my internship specialise in frontend
                   development and my passion is creating attractive user
