@@ -29,7 +29,7 @@ export default function Home() {
     setMousePosition({ left: mouseXpercentatge, top: mouseYPercentatge });
   };
 
-  const projectsWithHoverLogic = projectsItems.map(project => ({
+  const projectsWithHoverLogic = projectsItems.map((project) => ({
     ...project,
     isHovered: isHovered === project.name,
     isAnyHovered: isHovered !== null,
@@ -69,7 +69,8 @@ export default function Home() {
             </h3>
 
             <p className="text-blue-100 text-opacity-65 mt-2">
-            I specialise in designing and optimising interfaces that combine<br></br> appearance with functionality and performance. 👨🏻‍💻
+              I specialise in designing and optimising interfaces that combine
+              <br></br> appearance with functionality and performance. 👨🏻‍💻
             </p>
 
             <NavSection />
@@ -88,17 +89,16 @@ export default function Home() {
               >
                 <p className="text-blue-100 text-opacity-65">
                   <span className="text-white-500">
-                    I&apos;m a frontend developer
+                    Junior frontend developer
                   </span>
-                  , nearing the end of my internship specialise in frontend
-                  development and my passion is creating attractive user
-                  interfaces
+                  &nbsp;with experience in web design and optimization, as well
+                  as SEO strategy implementation.
                 </p>
 
                 <p className="text-blue-100 text-opacity-65 mt-2">
-                  I decided to study web development back in 2022 with basic
-                  computing notions and I&apos;m quite happy about the progress
-                  since then.
+                  Focused on optimizing the user experience and usability of
+                  websites, combining technical development skills with design
+                  principles.
                 </p>
 
                 <p className="text-blue-100 text-opacity-65 mt-2">
