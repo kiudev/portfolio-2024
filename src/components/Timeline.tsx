@@ -18,7 +18,7 @@ export default function Timeline({ items }: { items: TimelineItemProps[] }) {
             </time>
             <div className="lg:ml-10 px-6 sm:-ml-32">
               <div className="text-md font-bold -ml-6 min-[640px]:mt-9 lg:mt-0">
-                {`${item.title} • ${item.company}`}
+                {`${item.title} - ${item.company}`}
 
               </div>
               <div className="text-blue-100 text-sm -ml-6 -mb-3">
