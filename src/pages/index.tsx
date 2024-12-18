@@ -97,16 +97,6 @@ export default function Home() {
                 <p className="text-blue-100 text-opacity-65 mt-2">
                   My work focuses on taking care of both accessibility and
                   usability to project a space where the user can interact.
-                    Junior frontend developer
-                  </span>
-                  &nbsp;with experience in web design and optimization, as well
-                  as SEO strategy implementation.
-                </p>
-
-                <p className="text-blue-100 text-opacity-65 mt-2">
-                  Focused on optimizing the user experience and usability of
-                  websites, combining technical development skills with design
-                  principles.
                 </p>
 
                 <p className="text-blue-100 text-opacity-65 mt-2">
