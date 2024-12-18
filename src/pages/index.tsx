@@ -29,7 +29,7 @@ export default function Home() {
     setMousePosition({ left: mouseXpercentatge, top: mouseYPercentatge });
   };
 
-  const projectsWithHoverLogic = projectsItems.map(project => ({
+  const projectsWithHoverLogic = projectsItems.map((project) => ({
     ...project,
     isHovered: isHovered === project.name,
     isAnyHovered: isHovered !== null,
@@ -69,7 +69,8 @@ export default function Home() {
             </h3>
 
             <p className="text-blue-100 text-opacity-65 mt-2">
-            I specialise in designing and optimising interfaces that combine<br></br> appearance with functionality and performance. 👨🏻‍💻
+              I specialise in designing and optimising interfaces that combine
+              <br></br> appearance with functionality and performance. 👨🏻‍💻
             </p>
 
             <NavSection />
@@ -88,23 +89,26 @@ export default function Home() {
               >
                 <p className="text-blue-100 text-opacity-65">
                   <span className="text-white-500">
-                    I&apos;m a frontend developer
+                    Expert in creating web interfaces that integrate perfect
+                    elements to offer ideal user experiences.
                   </span>
-                  , nearing the end of my internship specialise in frontend
-                  development and my passion is creating attractive user
-                  interfaces
                 </p>
 
                 <p className="text-blue-100 text-opacity-65 mt-2">
-                  I decided to study web development back in 2022 with basic
-                  computing notions and I&apos;m quite happy about the progress
-                  since then.
+                  My work focuses on taking care of both accessibility and
+                  usability to project a space where the user can interact.
                 </p>
 
                 <p className="text-blue-100 text-opacity-65 mt-2">
-                  I&apos;m looking forward to keep working and developing my
-                  skills and exploring opportunities that will make me grow
-                  professionally.
+                  I have been responsible for designing and optimizing websites
+                  for companies implementing SEO strategies to increase
+                  visibility on Google.
+                </p>
+
+                <p className="text-blue-100 text-opacity-65 mt-2">
+                  I am open to new professional challenges in which I can put in
+                  my knowledge and contribute to the development of solutions
+                  that improve user satisfaction.
                 </p>
               </article>
             </section>
