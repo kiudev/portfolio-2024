@@ -7,7 +7,7 @@ export const projectsItems = [
   },
   {
     name: "EN-ES Translate",
-    image: "/en-es-translate.png",
+    image: "/translate.png",
     homepage: "https://en-es-translate.vercel.app",
     description: "Translate between these two languages",
   },
