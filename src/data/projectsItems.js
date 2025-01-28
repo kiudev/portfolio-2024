@@ -1,9 +1,15 @@
 export const projectsItems = [
   {
+    name: "Webpix",
+    image: "/webpix.png",
+    homepage: "https://webpix-chi.vercel.app",
+    description: "Compress your images to reach the best web performance",
+  },
+  {
     name: "Cinopolis",
     image: "/cinopolis.png",
     homepage: "https://cinopolis.vercel.app",
-    description: "A platform guide to help you find your favourite movies.",
+    description: "A platform guide to help you find your favourite movies",
   },
   {
     name: "EN-ES Translate",
@@ -22,11 +28,5 @@ export const projectsItems = [
     image: "/button-customizer.png",
     homepage: "https://customize-button.vercel.app",
     description: "Customize your own button",
-  },
-  {
-    name: "Weather App",
-    image: "/weather-app.png",
-    homepage: "https://any-clime.vercel.app",
-    description: "Weather App",
-  },
+  }
 ];
